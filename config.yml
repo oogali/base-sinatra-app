@@ -1,0 +1,12 @@
+---
+chdir: /path/to/app
+address: 127.0.0.1
+port: 18001
+pid: /path/to/app/server.pid
+rackup: /path/to/app/config.ru
+log: /path/to/app/server.log
+max_conns: 128
+timeout: 30
+max_persistent_conns: 16
+servers: 1
+daemonize: true
