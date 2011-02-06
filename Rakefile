@@ -14,6 +14,7 @@ task :start => [ 'deploy:start' ]
 task :stop => [ 'deploy:stop' ]
 task :restart => [ 'deploy:stop', 'deploy:start' ]
 task :default do
+  puts
   puts 'rake <action>'
   puts '* valid actions: start, stop, restart'
   puts
