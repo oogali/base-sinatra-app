@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'sinatra'
+require 'haml'
 
 working = File.dirname(__FILE__)
 set :root, working
