@@ -1,3 +1,5 @@
+$: << File.dirname(__FILE__) + '/lib' unless $:.include? File.dirname(__FILE__) + '/lib'
+
 require 'rubygems'
 require 'sinatra'
 require 'haml'
@@ -11,10 +13,10 @@ set :haml, :format => :html5
 disable :run
 
 # redirect logs
-log = File.new('sinatra.log', 'a')
+log = File.new('run/sinatra.log', 'a')
 $stdout.reopen(log)
 $stderr.reopen(log)
 
 # load core class and run
-require working + '/appname'
+require 'appname'
 run AppName::Application
