@@ -18,5 +18,5 @@ $stdout.reopen(log)
 $stderr.reopen(log)
 
 # load core class and run
-require 'appname'
+require 'appname/appname'
 run AppName::Application
