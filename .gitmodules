@@ -1,0 +1,3 @@
+[submodule "public/js/raphael"]
+	path = public/js/raphael
+	url = git://git.lnk.dj/raphael

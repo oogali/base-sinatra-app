@@ -7,14 +7,16 @@ require 'active_record'
 require 'pg'
 require 'redis'
 require 'redis/objects'
+require 'appname/appname'
 
 # set working directory
 working = File.expand_path File.dirname(__FILE__)
 set :root, working
+set :public, File.join(working, 'public')
 
 # set haml to html5 mode, disable sinatra from autostart
 set :haml, :format => :html5
-disable :run
+disable :run, :reload
 
 # redirect logs
 log = File.new('run/sinatra.log', 'a')
@@ -35,5 +37,4 @@ ActiveRecord::Base.establish_connection(
 )
 
 # load core class and run
-require 'appname/appname'
 run AppName::Application

@@ -1,5 +1,6 @@
 ---
-chdir: /path/to/app
+environment: development
+chdir: .
 address: 127.0.0.1
 port: 18001
 rackup: config.ru

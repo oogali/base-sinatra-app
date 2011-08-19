@@ -1,0 +1,4 @@
+.*.swp
+run/*.log
+run/*.pid
+.sass-cache
