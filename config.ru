@@ -2,10 +2,10 @@ $: << File.dirname(__FILE__) + '/lib' unless $:.include? File.dirname(__FILE__) 
 
 require 'rubygems'
 require 'active_record'
-require 'pg'
 require 'redis'
 require 'redis/objects'
 require 'sinatra'
+require 'sinatra/activerecord'
 require 'haml'
 require 'appname/appname'
 
@@ -23,17 +23,18 @@ $stdout.reopen(log)
 $stderr.reopen(log)
 
 # establish database connection
-ActiveRecord::Base.establish_connection(
-  :adapter => 'postgresql',
-  :database => 'dbname',
-  :encoding => 'utf8',
-  :host => 'localhost',
-  :username => 'dbuser',
-  :password => ''
-)
+set :database, 'postgres://localhost/newapp' if !ENV['DATABASE_URL']
+p database.connection
 
 # establish redis connection
-Redis::Objects.redis = Redis.new(:host => '127.0.0.1', :port => 6379)
+redis = URI.parse(ENV['REDIS_URL'] || 'redis://127.0.0.1:6379')
+Redis::Objects.redis = Redis.new(
+  :host => redis.host,
+  :port => redis.port || 6379,
+  :password => redis.password,
+  :db => redis.path
+)
+p Redis::Objects.redis
 
 # load core class and run
 run AppName::Application
