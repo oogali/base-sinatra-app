@@ -1,3 +1,9 @@
 [submodule "public/js/raphael"]
 	path = public/js/raphael
 	url = git://git.lnk.dj/raphael
+[submodule "public/js/jquery"]
+	path = public/js/jquery
+	url = git://git.lnk.dj/jquery
+[submodule "public/js/icanhaz"]
+	path = public/js/icanhaz
+	url = git://git.lnk.dj/icanhaz
