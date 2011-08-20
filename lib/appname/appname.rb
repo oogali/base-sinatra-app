@@ -1,14 +1,16 @@
-require 'sinatra/base'
+require 'sinatra'
 require 'sinatra/async'
 require 'sinatra/settings'
 require 'haml'
 require 'appname/dbexample'
 
 module AppName
-  class Application < Sinatra::Base
+  class Application < Sinatra::Application
     register Sinatra::Async
-    register Sinatra::Settings
-    enable :show_settings
+    configure :development do
+      register Sinatra::Settings
+      enable :show_settings
+    end
 
     aget '/' do
       body { haml :index }
