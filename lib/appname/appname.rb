@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'sinatra/async'
 require 'sinatra/settings'
 require 'haml'
+require 'appname/dbexample'
 
 module AppName
   class Application < Sinatra::Base

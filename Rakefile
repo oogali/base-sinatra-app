@@ -1,6 +1,10 @@
-require 'rake'
+$: << File.dirname(__FILE__) + '/lib' unless $:.include? File.dirname(__FILE__) + '/lib'
 
-namespace :deploy do
+require 'rake'
+require 'sinatra/activerecord/rake'
+require 'appname/appname'
+
+namespace :server do
   task :start do
     system "thin -s 1 -C config.yml -R config.ru start"
   end
@@ -10,9 +14,14 @@ namespace :deploy do
   end
 end
 
-task :start => [ 'deploy:start' ]
-task :stop => [ 'deploy:stop' ]
-task :restart => [ 'deploy:stop', 'deploy:start' ]
+desc 'Start the web application'
+task :start => [ 'server:start' ]
+
+desc 'Stop the web application'
+task :stop => [ 'server:stop' ]
+
+desc 'Restart the web application'
+task :restart => [ 'server:stop', 'server:start' ]
 task :default do
   puts
   puts 'rake <action>'
