@@ -1,8 +1,9 @@
 $: << File.dirname(__FILE__) + '/lib' unless $:.include? File.dirname(__FILE__) + '/lib'
 
 require 'rake'
-require 'sinatra/activerecord/rake'
 require 'appname/appname'
+require 'sinatra/activerecord/rake'
+require 'cucumber/rake/task'
 
 namespace :server do
   task :start do
@@ -12,6 +13,11 @@ namespace :server do
   task :stop do
     system "thin -s 1 -C config.yml -R config.ru stop"
   end
+end
+
+desc 'Run Cucumber tests'
+Cucumber::Rake::Task.new(:features) do |t|
+  t.cucumber_opts = "features --format pretty"
 end
 
 desc 'Start the web application'
