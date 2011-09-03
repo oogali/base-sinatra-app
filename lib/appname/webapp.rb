@@ -17,9 +17,9 @@ module AppName
       body { haml :index }
     end
 
-    aget %r{/css/(default|reset)\.css} do
+    aget %r{/css/(default|reset)\.css} do |css|
       content_type 'text/css', :charset => 'utf-8'
-      body { sass :"#{params[:captures].first}" }
+      body { sass :"#{css}" }
     end
   end
 end
