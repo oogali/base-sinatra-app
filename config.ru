@@ -7,7 +7,7 @@ require 'redis/objects'
 require 'sinatra'
 require 'sinatra/activerecord'
 require 'haml'
-require 'appname/appname'
+require 'appname'
 
 # set working directory
 working = File.expand_path File.dirname(__FILE__)
@@ -38,5 +38,7 @@ Redis::Objects.redis = Redis.new(
 )
 puts "#{Redis::Objects.redis.inspect.to_s}\n\n"
 
-# load core class and run
-run AppName::Application
+# map urls
+map '/' do
+  run AppName::Application
+end

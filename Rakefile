@@ -1,7 +1,7 @@
 $: << File.dirname(__FILE__) + '/lib' unless $:.include? File.dirname(__FILE__) + '/lib'
 
 require 'rake'
-require 'appname/appname'
+require 'appname'
 require 'sinatra/activerecord/rake'
 require 'cucumber/rake/task'
 

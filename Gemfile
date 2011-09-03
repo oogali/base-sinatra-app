@@ -16,7 +16,10 @@ gem 'sass'
 gem 'json'
 gem 'rake'
 gem 'SystemTimer'
-gem 'cucumber'
-gem 'rspec'
-gem 'rspec-expectations'
-gem 'capybara'
+
+group :test do
+  gem 'cucumber'
+  gem 'rspec'
+  gem 'rspec-expectations'
+  gem 'capybara'
+end

@@ -1,8 +1,9 @@
+require 'rubygems'
 require 'sinatra'
 require 'sinatra/async'
 require 'sinatra/settings'
 require 'haml'
-require 'appname/dbexample'
+require 'appname'
 
 module AppName
   class Application < Sinatra::Application
