@@ -21,7 +21,7 @@ if ENV['RACK_ENV']
 end
 
 # load our setup routines (sql, redis, etc)
-Dir[File.join(working, 'lib', 'setup', "*.rb")].each {|file| require File.basename(file) }
+Dir[File.join(working, 'lib', 'setup', "*.rb")].each { |file| require file }
 
 # map urls
 map '/' do
