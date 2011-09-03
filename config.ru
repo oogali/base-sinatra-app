@@ -1,11 +1,7 @@
 $: << File.dirname(__FILE__) + '/lib' unless $:.include? File.dirname(__FILE__) + '/lib'
 
 require 'rubygems'
-require 'active_record'
-require 'redis'
-require 'redis/objects'
 require 'sinatra'
-require 'sinatra/activerecord'
 require 'haml'
 require 'appname'
 
@@ -24,19 +20,8 @@ if ENV['RACK_ENV']
   $stderr.reopen(log)
 end
 
-# establish database connection
-set :database, 'postgres://localhost/newapp' if !ENV['DATABASE_URL']
-puts "#{database.connection.inspect.to_s}\n\n"
-
-# establish redis connection
-redis = URI.parse(ENV['REDIS_URL'] || 'redis://127.0.0.1:6379')
-Redis::Objects.redis = Redis.new(
-  :host => redis.host,
-  :port => redis.port || 6379,
-  :password => redis.password,
-  :db => redis.path
-)
-puts "#{Redis::Objects.redis.inspect.to_s}\n\n"
+# load our setup routines (sql, redis, etc)
+Dir[File.join(working, 'lib', 'setup', "*.rb")].each {|file| require File.basename(file) }
 
 # map urls
 map '/' do
