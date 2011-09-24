@@ -17,7 +17,7 @@ search=0
 while [ "${search}" == 0 ]; do
   for file in `find . -name 'appname*' | sort -r` ; do
     newfile=`echo ${file} | sed "s/appname/${newpath}/"`
-    mv ${file} ${newfile} 2>/dev/null
+    git mv ${file} ${newfile} 2>/dev/null
   done
 
   find . -name 'appname*' | grep -q appname
