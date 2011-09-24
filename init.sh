@@ -5,7 +5,7 @@ if [ $# -ne 1 ]; then
   exit 1
 fi
 
-if [ ! -f "Gemfile" ] || [ -f "init.sh" ]; then
+if [ ! -f "Gemfile" ] || [ ! -f "init.sh" ]; then
   echo "$0: this is not our base sinatra app"
   exit 1
 fi
