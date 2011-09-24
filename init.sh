@@ -24,7 +24,7 @@ while [ "${search}" == 0 ]; do
   search=$?
 done
 
-for file in `find . -type f ! -path './.git/*' -exec grep -l appname {} \;` ; do
+for file in `find . -type f ! -path './.git/*' -exec grep -il appname {} \;` ; do
   sed -i .bak -e "s/appname/${newpath}/g; s/AppName/${newclass}/g" ${file}
   rm -f ${file}.bak
 done
