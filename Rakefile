@@ -5,6 +5,9 @@ require 'appname'
 require 'sinatra/activerecord/rake'
 require 'cucumber/rake/task'
 
+# load our setup routines (sql, redis, etc)
+Dir[File.join(File.dirname(__FILE__), 'lib', 'setup', "*.rb")].each { |file| require file }
+
 namespace :server do
   task :start do
     system "thin -s 1 -C config.yml -R config.ru start"
