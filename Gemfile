@@ -16,6 +16,7 @@ gem 'sass'
 gem 'json'
 gem 'rake'
 gem 'SystemTimer'
+gem 'rack-flash'
 
 group :test do
   gem 'cucumber'
