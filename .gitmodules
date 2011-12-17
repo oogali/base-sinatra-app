@@ -7,3 +7,6 @@
 [submodule "public/js/icanhaz"]
 	path = public/js/icanhaz
 	url = git://git.lnk.dj/icanhaz
+[submodule "public/js/knockoutjs"]
+	path = public/js/knockoutjs
+	url = git://git.lnk.dj/knockoutjs
