@@ -15,7 +15,8 @@ gem 'haml'
 gem 'sass'
 gem 'json'
 gem 'rake'
-gem 'SystemTimer'
+gem 'SystemTimer', :platforms => :ruby_18
+gem 'rack-flash'
 
 group :test do
   gem 'cucumber'

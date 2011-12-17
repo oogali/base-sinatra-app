@@ -3,6 +3,7 @@ require 'sinatra'
 require 'sinatra/async'
 require 'sinatra/settings'
 require 'haml'
+require 'rack-flash'
 require 'appname'
 
 module AppName
@@ -12,6 +13,8 @@ module AppName
       register Sinatra::Settings
       enable :show_settings
     end
+    use Rack::Session::Pool
+    use Rack::Flash
 
     aget '/' do
       body { haml :index }
