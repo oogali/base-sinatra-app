@@ -2,6 +2,7 @@ $: << File.dirname(__FILE__) + '/lib' unless $:.include? File.dirname(__FILE__) 
 
 require 'rubygems'
 require 'sinatra'
+require 'sinatra/reloader' if development?
 require 'haml'
 require 'appname'
 

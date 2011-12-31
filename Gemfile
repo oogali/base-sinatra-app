@@ -18,6 +18,10 @@ gem 'rake'
 gem 'SystemTimer', :platforms => :ruby_18
 gem 'rack-flash'
 
+group :development do
+  gem 'sinatra-reloader'
+end
+
 group :test do
   gem 'cucumber'
   gem 'rspec'

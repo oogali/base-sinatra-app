@@ -11,6 +11,7 @@ module AppName
     register Sinatra::Async
     configure :development do
       register Sinatra::Settings
+      register Sinatra::Reloader
       enable :show_settings
     end
     use Rack::Session::Pool
