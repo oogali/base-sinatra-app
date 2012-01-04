@@ -5,7 +5,7 @@ require 'sinatra/activerecord/rake'
 require 'cucumber/rake/task'
 
 # load our setup routines (sql, redis, etc), before loading our app
-Dir[File.join(File.dirname(__FILE__), 'lib', 'setup', "*.rb")].each { |file| require file }
+Dir[File.join(File.dirname(__FILE__), 'setup', "*.rb")].each { |file| require file }
 require 'appname'
 
 namespace :server do
