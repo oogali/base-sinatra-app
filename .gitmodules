@@ -10,3 +10,6 @@
 [submodule "public/js/knockoutjs"]
 	path = public/js/knockoutjs
 	url = git://git.lnk.dj/knockoutjs
+[submodule "public/js/d3"]
+	path = public/js/d3
+	url = git://git.lnk.dj/d3
