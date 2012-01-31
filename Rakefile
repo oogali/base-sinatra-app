@@ -2,7 +2,6 @@ $: << File.dirname(__FILE__) + '/lib' unless $:.include? File.dirname(__FILE__) 
 
 require 'rake'
 require 'sinatra/activerecord/rake'
-require 'cucumber/rake/task'
 
 # load our setup routines (sql, redis, etc), before loading our app
 Dir[File.join(File.dirname(__FILE__), 'setup', "*.rb")].each { |file| require file }
@@ -16,11 +15,6 @@ namespace :server do
   task :stop do
     system "thin -s 1 -C config.yml -R config.ru stop"
   end
-end
-
-desc 'Run Cucumber tests'
-Cucumber::Rake::Task.new(:features) do |t|
-  t.cucumber_opts = "features --format pretty"
 end
 
 desc 'Start the web application'
