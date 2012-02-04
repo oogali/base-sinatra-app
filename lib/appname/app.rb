@@ -1,7 +1,8 @@
 require 'rubygems'
 require 'sinatra'
 require 'sinatra/async'
-require 'sinatra/settings'
+require 'sinatra/reloader' if development?
+require 'sinatra/settings' if development?
 require 'haml'
 require 'rack-flash'
 require 'appname'
