@@ -2,8 +2,8 @@ $: << File.dirname(__FILE__) + '/lib' unless $:.include? File.dirname(__FILE__) 
 
 require 'rubygems'
 require 'sinatra'
+require 'sinatra/reloader' if development?
 require 'haml'
-require 'appname'
 
 # set working directory
 working = File.expand_path File.dirname(__FILE__)
@@ -19,6 +19,12 @@ if ENV['RACK_ENV']
   $stdout.reopen(log)
   $stderr.reopen(log)
 end
+
+# load our setup routines (sql, redis, etc), before loading our app
+Dir[File.join(File.dirname(__FILE__), 'setup', "*.rb")].each { |file| require file }
+
+# load our app
+require 'appname'
 
 # map urls
 map '/' do

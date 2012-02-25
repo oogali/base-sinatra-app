@@ -29,4 +29,5 @@ for file in `find . -type f ! -path './.git/*' -exec grep -il appname {} \;` ; d
   rm -f ${file}.bak
 done
 
+git rm run/.keep
 git rm -f ${0}

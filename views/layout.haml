@@ -15,6 +15,7 @@
     %script{ :language => 'javascript', :src => '/js/raphael/g.line-min.js' }
     %script{ :language => 'javascript', :src => '/js/raphael/g.pie-min.js' }
   %body
-    =yield
+    #container
+      =yield
 
   =show_settings_output?
