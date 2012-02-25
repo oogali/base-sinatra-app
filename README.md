@@ -44,9 +44,10 @@ I'm assuming you already know how awesome Git and Sinatra are.
 I've pre-defined a [bunch of dependencies](https://github.com/oogali/base-sinatra-app/blob/master/Gemfile) you need to start running. Bundler takes care of finding these dependencies (and their dependencies), and installing these gems onto your system. If you're going to add gems (which you will at some point), this is the file you'll add the dependencies to.
 
 As part of the prep process, Bundler creates a few files and directories, but you most likely won't ever need to touch these auto-generated items:
-- [.bundle/](https://github.com/oogali/base-sinatra-app/tree/master/.bundle)
-- [bin/](https://github.com/oogali/base-sinatra-app/tree/master/bin)
-- [Gemfile.lock](https://github.com/oogali/base-sinatra-app/blob/master/Gemfile.lock)
+
+* [.bundle/](https://github.com/oogali/base-sinatra-app/tree/master/.bundle)
+* [bin/](https://github.com/oogali/base-sinatra-app/tree/master/bin)
+* [Gemfile.lock](https://github.com/oogali/base-sinatra-app/blob/master/Gemfile.lock)
 
 Chances are, you want to talk to some sort of database or datastore. So, there are some templates defined (but not activated), for the things I deal with the most: PostgreSQL and Redis.
 
