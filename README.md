@@ -57,7 +57,7 @@ I rely on [rake](https://github.com/jimweirich/rake) to start and stop the appli
 
 [Thin](https://github.com/macournoyer/thin) is the web server used to front your web application. Its configuration, which you can also modify, is read from [config.yml](https://github.com/oogali/base-sinatra-app/blob/master/config.yml).
 
-Thin also loads, another configuration file: [config.ru](https://github.com/oogali/base-sinatra-app/blob/master/config.ru0, which sets some more setttings that are specific to your application and/or Sinatra.
+Thin also loads, another configuration file: [config.ru](https://github.com/oogali/base-sinatra-app/blob/master/config.ru), which sets some more setttings that are specific to your application and/or Sinatra.
 
 Your Sinatra directories are the standard bunch:
 
@@ -85,7 +85,7 @@ That will replace all of *appname* placeholders with the name you've specified. 
 
 Any other goodies?
 ------------------
-Why yes, yes there is.
+Why yes, yes there are.
 
 I've included [sinatra-reloader](https://github.com/rkh/sinatra-reloader) for development. I used to write a lot of PHP, so I've gotten used to editing code, and then refreshing my browser to see the changes. But this isn't PHP, and the default behavior is to write code, find a free terminal window, restart your app, and then refresh your browser. That's a lot of clickety-clickety-click.
 
