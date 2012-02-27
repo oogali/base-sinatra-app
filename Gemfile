@@ -4,7 +4,7 @@ gem 'eventmachine'
 gem 'thin'
 gem 'hiredis'
 gem 'redis', '>= 2.2.0', :require => ['redis', 'redis/connection/hiredis']
-gem 'redis-objects'
+gem 'redis-objects', :git => 'git://github.com/nateware/redis-objects.git'
 gem 'sinatra'
 gem 'haml'
 gem 'sass'
