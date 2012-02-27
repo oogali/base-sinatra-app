@@ -19,6 +19,7 @@ gem 'rake'
 gem 'rack-flash'
 gem 'bcrypt-ruby'
 gem 'activesupport'
+gem 'rack-contrib'
 
 group :development do
   gem 'sinatra-reloader'
