@@ -1,23 +1,16 @@
-GIT
-  remote: git://github.com/nateware/redis-objects.git
-  revision: c246b1d04fea0f478e0e27a913fca30358141d07
-  specs:
-    redis-objects (0.5.2)
-      redis (>= 2.1.1)
-
 GEM
   remote: http://rubygems.org/
   specs:
     SystemTimer (1.2.3)
-    activemodel (3.2.1)
-      activesupport (= 3.2.1)
+    activemodel (3.2.2)
+      activesupport (= 3.2.2)
       builder (~> 3.0.0)
-    activerecord (3.2.1)
-      activemodel (= 3.2.1)
-      activesupport (= 3.2.1)
-      arel (~> 3.0.0)
+    activerecord (3.2.2)
+      activemodel (= 3.2.2)
+      activesupport (= 3.2.2)
+      arel (~> 3.0.2)
       tzinfo (~> 0.3.29)
-    activesupport (3.2.1)
+    activesupport (3.2.2)
       i18n (~> 0.6)
       multi_json (~> 1.0)
     arel (3.0.2)
@@ -46,6 +39,8 @@ GEM
       rack (>= 1.0)
     rake (0.9.2.2)
     redis (2.2.2)
+    redis-objects (0.5.2)
+      redis (>= 2.1.1)
     sass (3.1.15)
     sinatra (1.3.2)
       rack (>= 1.3.6, ~> 1.3)
@@ -70,7 +65,7 @@ GEM
       eventmachine (>= 0.12.6)
       rack (>= 1.0.0)
     tilt (1.3.3)
-    tzinfo (0.3.31)
+    tzinfo (0.3.32)
 
 PLATFORMS
   ruby
@@ -91,7 +86,7 @@ DEPENDENCIES
   rack-flash
   rake
   redis (>= 2.2.0)
-  redis-objects!
+  redis-objects
   sass
   sinatra
   sinatra-activerecord
