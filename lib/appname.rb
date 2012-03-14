@@ -1,3 +1,3 @@
 require 'appname/appname'
-require 'appname/webapp'
-require 'appname/model'
+require 'appname/app'
+require 'appname/db'
