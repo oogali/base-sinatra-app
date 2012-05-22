@@ -30,5 +30,5 @@ for file in `find . -type f ! -path './.git/*' -exec grep -il appname {} \;` ; d
 done
 
 git rm run/.keep
-git rm README.md
+git rm -f README.md
 git rm -f ${0}
