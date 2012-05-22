@@ -1,4 +1,5 @@
 require 'active_record'
+require 'sinatra'
 require 'sinatra/activerecord'
 
 # establish database connection
