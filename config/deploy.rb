@@ -39,6 +39,25 @@ namespace :deploy do
   end
 end
 
-after 'deploy:symlink', :roles => [ :app ] do
-  run "ln -s #{shared_path}/log #{deploy_to}/current/run"
+namespace :config do
+  task :setup_log_path do
+    run "ln -s #{shared_path}/log #{deploy_to}/current/run"
+  end
+
+  task :setup_environment do
+    run "cd #{deploy_to}/current && ln -sf config_production.yml config.yml"
+  end
+end
+
+before 'deploy:create_symlink', :roles => [ :app ] do
+  deploy.stop
+end
+
+after 'deploy:create_symlink', :roles => [ :db ] do
+  deploy.migrate
+end
+
+after 'deploy:create_symlink', :roles => [ :app ] do
+  config.setup_log_path
+  config.setup_environment
 end
