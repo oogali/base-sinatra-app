@@ -19,6 +19,10 @@ module AppName
     use Rack::Session::Pool, :path => '/', :secret => 'SET_YOUR_SECRET_SESSION_KEY_HERE', :key => 'SESSIONID', :sidbits => 128
     use Rack::Flash
 
+    def initialize
+      super
+    end
+
     helpers do
       def authenticate!(username, password)
         self.current_user = Db::User.authenticate username, password
