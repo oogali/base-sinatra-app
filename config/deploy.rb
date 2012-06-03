@@ -14,6 +14,12 @@ set :deploy_to, "/home/#{user}/#{application}"
 set :keep_releases, 5
 set :normalize_asset_timestamps, false
 
+## hipchat deploy announcements
+# require 'hipchat/capistrano'
+# set :hipchat_token, 'HIPCHAT_API_TOKEN'
+# set :hipchat_room_name, 'HIPCHAT_ROOM_NAME'
+# set :hipchat_announce, true
+
 role :app, 'localhost'
 role :db, 'localhost', :primary => true
 
