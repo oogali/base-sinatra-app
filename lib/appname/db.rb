@@ -4,7 +4,7 @@ require 'will_paginate'
 
 module AppName
   module Model
-    class Table < ActiveRecord::Base
+    class Object < ActiveRecord::Base
     end
 
     class User < ActiveRecord::Base
