@@ -1,4 +1,5 @@
 require 'active_record'
+require 'will_paginate'
 
 module AppName
   module Model

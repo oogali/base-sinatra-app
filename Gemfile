@@ -20,6 +20,7 @@ gem 'rack-flash'
 gem 'bcrypt-ruby'
 gem 'activesupport'
 gem 'rack-contrib'
+gem 'will_paginate', '~> 3.0'
 
 group :development do
   gem 'sinatra-reloader'
