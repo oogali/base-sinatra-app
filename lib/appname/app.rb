@@ -39,6 +39,10 @@ module AppName
       def valid_session?
         current_user and current_user.id.to_i > 0
       end
+
+      def partial(page, options = {})
+        render :haml, page, options.merge!(:layout => false)
+      end
     end
 
     before do
