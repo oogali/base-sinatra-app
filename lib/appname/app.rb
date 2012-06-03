@@ -64,6 +64,11 @@ module AppName
 
       redirect session[:to] ? session.delete(:to) : '/'
     end
+
+    aget '/healthcheck' do
+      body { "OK\n" }
+    end
+
     aget '/' do
       body { haml :index }
     end
