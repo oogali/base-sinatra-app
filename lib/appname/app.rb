@@ -8,6 +8,7 @@ require 'rack-flash'
 require 'omniauth'
 require 'omniauth-google-apps'
 require 'openid/store/filesystem'
+require 'active_support/core_ext/object'
 require 'appname'
 
 module AppName
