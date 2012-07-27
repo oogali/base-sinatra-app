@@ -7,7 +7,7 @@ gem 'redis', '>= 2.2.0', :require => ['redis', 'redis/connection/hiredis']
 gem 'redis-objects'
 gem 'sinatra'
 gem 'async_sinatra'
-gem 'sinatra-activerecord'
+gem 'sinatra-activerecord', '~> 0.1'
 gem 'activerecord'
 gem 'pg'
 gem 'sqlite3'

@@ -90,7 +90,7 @@ DEPENDENCIES
   redis-objects
   sass
   sinatra
-  sinatra-activerecord
+  sinatra-activerecord (~> 0.1)
   sinatra-reloader
   sinatra-settings
   sqlite3
