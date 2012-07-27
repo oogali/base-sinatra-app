@@ -16,6 +16,10 @@ module AppName
         self.passwd = BCrypt::Password.create new_password, :cost => 6
       end
 
+      def self.sso_login(auth)
+        user = self.find_by_email(auth.info.email) || self.create(:email => auth.info.email, :passwd => 'GOOGLE APPS SSO', :name => auth.info.name)
+      end
+
       def self.authenticate(username, user_passwd)
         # search for user, short circuit if not found
         user = self.find_by_username username

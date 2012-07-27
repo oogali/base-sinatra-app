@@ -5,6 +5,9 @@ require 'sinatra/reloader' if development?
 require 'sinatra/settings' if development?
 require 'haml'
 require 'rack-flash'
+require 'omniauth'
+require 'omniauth-google-apps'
+require 'openid/store/filesystem'
 require 'appname'
 
 module AppName
@@ -21,6 +24,9 @@ module AppName
 
     use Rack::Session::Pool, :path => '/', :secret => 'SET_YOUR_SECRET_SESSION_KEY_HERE', :key => 'SESSIONID', :sidbits => 128
     use Rack::Flash
+    use OmniAuth::Builder do
+      provider :google_apps, :store => OpenID::Store::Filesystem.new('/tmp/appname'), :domain => 'appname.com'
+    end
 
     def initialize
       super
@@ -68,6 +74,13 @@ module AppName
       end
 
       redirect session[:to] ? session.delete(:to) : '/'
+    end
+
+    %w(get post).each do |method|
+      send(method, "/auth/:provider/callback") do
+        self.current_user = Db::User.sso_login env['omniauth.auth']
+        redirect '/'
+      end
     end
 
     aget '/healthcheck' do

@@ -21,6 +21,9 @@ gem 'bcrypt-ruby'
 gem 'activesupport'
 gem 'rack-contrib'
 gem 'will_paginate', '~> 3.0'
+gem 'omniauth'
+gem 'omniauth-google-apps'
+gem 'oa-openid'
 
 group :development do
   gem 'sinatra-reloader'
