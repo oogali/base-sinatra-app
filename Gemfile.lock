@@ -36,7 +36,7 @@ GEM
     pg (0.13.2)
     rack-contrib (1.1.0)
       rack (>= 0.9.1)
-    rack-flash (0.1.2)
+    rack-flash3 (1.0.1)
       rack
       rack
     rack-protection (1.2.0)
@@ -90,7 +90,7 @@ DEPENDENCIES
   pg
   rack!
   rack-contrib
-  rack-flash
+  rack-flash3
   rake
   redis (>= 2.2.0)
   redis-objects
