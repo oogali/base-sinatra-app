@@ -76,6 +76,11 @@ module AppName
       redirect session[:to] ? session.delete(:to) : '/'
     end
 
+    aget '/logout' do
+      session.destroy
+      redirect '/login'
+    end
+
     %w(get post).each do |method|
       send(method, "/auth/:provider/callback") do
         self.current_user = Db::User.sso_login env['omniauth.auth']
