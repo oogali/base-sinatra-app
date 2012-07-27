@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/rack/rack.git
+  revision: e4172e79b5b68e6bdd2ba45e3e590398fb456308
+  specs:
+    rack (1.4.1)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -28,10 +34,10 @@ GEM
     json (1.6.5)
     multi_json (1.1.0)
     pg (0.13.2)
-    rack (1.3.6)
     rack-contrib (1.1.0)
       rack (>= 0.9.1)
     rack-flash (0.1.2)
+      rack
       rack
     rack-protection (1.2.0)
       rack
@@ -82,7 +88,7 @@ DEPENDENCIES
   hiredis
   json
   pg
-  rack (~> 1.3.6)
+  rack!
   rack-contrib
   rack-flash
   rake
