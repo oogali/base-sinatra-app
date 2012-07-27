@@ -9,7 +9,10 @@ require 'appname'
 
 module AppName
   class Application < Sinatra::Application
+    REQUIRE_AUTHENTICATION = false
+
     register Sinatra::Async
+
     configure :development do
       register Sinatra::Settings
       register Sinatra::Reloader
@@ -46,10 +49,12 @@ module AppName
     end
 
     before do
-      # unless valid_session? or (request.path_info.match /^\/(login|healthcheck|css\/|js\/)/)
-      #   session[:to] = request.path == '/login' ? '/' : request.path
-      #   return redirect '/login'
-      # end
+      if REQUIRE_AUTHENTICATION
+        unless valid_session? or (request.path_info.match /^\/(login|healthcheck|css\/|js\/)/)
+          session[:to] = request.path == '/login' ? '/' : request.path
+          return redirect '/login'
+        end
+      end
     end
 
     aget '/login' do
