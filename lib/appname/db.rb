@@ -17,7 +17,11 @@ module AppName
       end
 
       def self.authenticate(username, user_passwd)
+        # search for user, short circuit if not found
         user = self.find_by_username username
+        return nil unless user
+
+        # check password
         user.password == user_passwd ? user : nil
       end
     end
