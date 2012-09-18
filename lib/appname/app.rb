@@ -1,14 +1,4 @@
-require 'rubygems'
-require 'sinatra'
-require 'sinatra/async'
-require 'sinatra/reloader' if development?
-require 'sinatra/settings' if development?
-require 'haml'
-require 'rack-flash'
-require 'omniauth'
-require 'omniauth-google-apps'
-require 'openid/store/filesystem'
-require 'active_support/core_ext/object'
+require 'bundler/setup'
 require 'appname'
 
 module AppName
