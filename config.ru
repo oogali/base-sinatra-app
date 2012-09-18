@@ -22,8 +22,12 @@ end
 # redirect logs if we're *not* running a test (presence of RACK_ENV)
 if ENV['RACK_ENV']
   log = File.new(File.join(working, 'run', 'sinatra.log'), 'a')
+
   $stdout.reopen(log)
+  $stdout.sync = true
+
   $stderr.reopen(log)
+  $stdout.sync = true
 end
 
 # load our setup routines (sql, redis, etc), before loading our app
