@@ -31,11 +31,12 @@ namespace :deploy do
   end
 
   task :stop do
-    run "cd #{deploy_to}/current && #{rake} stop"
+    run "test -d #{deploy_to}/current && cd #{deploy_to}/current && #{rake} stop"
   end
 
   task :restart, :roles => :app, :except => { :no_release => true } do
-    run "cd #{deploy_to}/current && #{rake} restart"
+    deploy.stop
+    deploy.start
   end
 end
 
