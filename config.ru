@@ -3,6 +3,7 @@ $: << File.dirname(__FILE__) + '/lib' unless $:.include? File.dirname(__FILE__) 
 require 'rubygems'
 require 'bundler'
 
+# require bundled gems
 Bundler.require
 
 # set working directory
