@@ -27,7 +27,6 @@ gem 'oa-openid'
 
 group :development do
   gem 'sinatra-reloader'
-  gem 'sinatra-settings'
 end
 
 group :test do
