@@ -13,6 +13,12 @@ set :root, working
 set :haml, :format => :html5
 disable :run, :reload
 
+if production?
+  # disable built-in exception handling
+  set :raise_errors, Proc.new { false }
+  set :show_exceptions, false
+end
+
 # redirect logs if we're *not* running a test (presence of RACK_ENV)
 if ENV['RACK_ENV']
   log = File.new(File.join(working, 'run', 'sinatra.log'), 'a')
