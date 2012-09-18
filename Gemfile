@@ -29,3 +29,11 @@ group :development do
   gem 'sinatra-reloader'
   gem 'sinatra-settings'
 end
+
+group :test do
+  gem 'cucumber'
+  gem 'rspec'
+  gem 'rspec-expectations'
+  gem 'rack-test'
+  gem 'capybara'
+end
