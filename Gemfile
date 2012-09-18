@@ -16,7 +16,7 @@ gem 'sass'
 gem 'json'
 gem 'rack', :git => 'git://github.com/rack/rack.git'
 gem 'rake'
-gem 'rack-flash3'
+gem 'rack-flash3', :require => 'rack/flash'
 gem 'bcrypt-ruby'
 gem 'activesupport'
 gem 'rack-contrib'
@@ -24,9 +24,10 @@ gem 'will_paginate', '~> 3.0'
 gem 'omniauth'
 gem 'omniauth-google-apps'
 gem 'oa-openid'
+gem 'ruby-openid', :require => 'openid/store/filesystem'
 
 group :development do
-  gem 'sinatra-reloader'
+  gem 'sinatra-reloader', :require => 'sinatra/reloader'
 end
 
 group :test do

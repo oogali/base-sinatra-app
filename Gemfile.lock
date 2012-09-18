@@ -161,6 +161,7 @@ DEPENDENCIES
   redis-objects
   rspec
   rspec-expectations
+  ruby-openid
   sass
   sinatra
   sinatra-activerecord (~> 0.1)
