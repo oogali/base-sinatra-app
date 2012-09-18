@@ -1,4 +1,6 @@
-require 'bundler/setup'
+require 'bundler'
+Bundler.require
+
 require 'appname'
 
 module AppName
