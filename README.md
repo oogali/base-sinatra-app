@@ -64,16 +64,11 @@ Your Sinatra directories are the standard bunch:
 * [public/](https://github.com/oogali/base-sinatra-app/tree/master/public) holds your static assets (Javascript, CSS, images)
 * [views/](https://github.com/oogali/base-sinatra-app/tree/master/views) holds your Haml templates
 
-Some basic CSS and layouts are included (as Git submodules), as well as the following:
+Some basic CSS and layouts are included.
 
 * [Eric A. Meyer's Reset CSS: get down to brass-tacks in every browser](http://meyerweb.com/eric/tools/css/reset/)
-* [jQuery: the juggernaut Javascript library](http://jquery.com/)
 * [jquery-tmpl: the jQuery templating plugin](http://github.com/jquery/jquery-tmpl)
 * [Nathan Smith's Formalize: make consistent *and* pretty forms](http://formalize.me/)
-* [ICanHaz: client-side templating Javascript library](http://icanhazjs.com/)
-* [Knockout: client-side user interface framework](http://knockoutjs.com/)
-* [D3: a straight-up, amazing Javascript document manipulation library that can generate crisp, clean, interactive graphs](http://mbostock.github.com/d3/)
-* [gRaphaël: a library for generating clean graphs, but with less of a learning curve than D3](http://g.raphaeljs.com/)
 
 Your application will land in [lib/](https://github.com/oogali/base-sinatra-app/tree/master/lib).
 
