@@ -31,7 +31,9 @@ namespace :deploy do
   end
 
   task :stop do
-    run "test -d #{deploy_to}/current && cd #{deploy_to}/current && #{rake} stop"
+    if File.exists? "#{deploy_to}/current"
+      run "cd #{deploy_to}/current && #{rake} stop"
+    end
   end
 
   task :restart, :roles => :app, :except => { :no_release => true } do
