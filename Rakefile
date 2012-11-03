@@ -21,6 +21,12 @@ namespace :server do
   end
 end
 
+namespace :debug do
+  task :database do
+    system "bundle exec irb -I#{File.dirname(__FILE__) + '/lib/'} -rsetup/postgres -rappname"
+  end
+end
+
 if ENV['RACK_ENV'] == 'test'
   Cucumber::Rake::Task.new do |t|
     t.cucumber_opts = %w{--format pretty}
@@ -32,6 +38,9 @@ task :start => [ 'server:start' ]
 
 desc 'Stop the web application'
 task :stop => [ 'server:stop' ]
+
+desc 'Start the Interactive Ruby interpreter (for ActiveRecord-troubleshooting)'
+task :irb => [ 'debug:database' ]
 
 desc 'Restart the web application'
 task :restart => [ 'server:stop', 'server:start' ]
