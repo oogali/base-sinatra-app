@@ -25,6 +25,7 @@ gem 'omniauth'
 gem 'omniauth-google-apps'
 gem 'oa-openid'
 gem 'ruby-openid', :require => 'openid/store/filesystem'
+gem 'hipchat'
 
 group :development do
   gem 'sinatra-reloader', :require => 'sinatra/reloader'
