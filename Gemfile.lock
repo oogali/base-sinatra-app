@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/rack/rack-contrib.git
+  revision: 6f337267eae0bedb4110879f2aea6b1bb2137980
+  specs:
+    rack-contrib (1.2.0)
+      rack (>= 0.9.1)
+
+GIT
   remote: git://github.com/rack/rack.git
   revision: 72573c161cd18220f233a9cc4f63245f7ae76629
   specs:
@@ -8,6 +15,16 @@ GEM
   remote: http://rubygems.org/
   specs:
     SystemTimer (1.2.3)
+    actionpack (3.2.9)
+      activemodel (= 3.2.9)
+      activesupport (= 3.2.9)
+      builder (~> 3.0.0)
+      erubis (~> 2.7.0)
+      journey (~> 1.0.4)
+      rack (~> 1.4.0)
+      rack-cache (~> 1.2)
+      rack-test (~> 0.6.1)
+      sprockets (~> 2.2.1)
     activemodel (3.2.9)
       activesupport (= 3.2.9)
       builder (~> 3.0.0)
@@ -43,12 +60,14 @@ GEM
       json (>= 1.4.6)
     daemons (1.1.9)
     diff-lcs (1.1.3)
+    erubis (2.7.0)
     eventmachine (1.0.0)
     ffi (1.2.0)
     gherkin (2.11.5)
       json (>= 1.4.6)
     haml (3.1.7)
     hashie (1.2.0)
+    hike (1.2.1)
     hipchat (0.7.0)
       httparty
       httparty
@@ -57,6 +76,7 @@ GEM
       multi_json (~> 1.0)
       multi_xml
     i18n (0.6.1)
+    journey (1.0.4)
     json (1.7.5)
     libwebsocket (0.1.7.1)
       addressable
@@ -81,8 +101,8 @@ GEM
       omniauth (~> 1.0)
       rack-openid (~> 1.3.1)
     pg (0.14.1)
-    rack-contrib (1.1.0)
-      rack (>= 0.9.1)
+    rack-cache (1.2)
+      rack (>= 0.4)
     rack-flash3 (1.0.1)
       rack
       rack
@@ -130,6 +150,13 @@ GEM
       tilt (~> 1.3)
     sinatra-reloader (1.0)
       sinatra-contrib
+    sinatra-static-assets (1.0.4)
+      sinatra (>= 1.1.0)
+    sprockets (2.2.2)
+      hike (~> 1.2)
+      multi_json (~> 1.0)
+      rack (~> 1.0)
+      tilt (~> 1.1, != 1.3.0)
     sqlite3 (1.3.6)
     thin (1.5.0)
       daemons (>= 1.0.9)
@@ -147,6 +174,7 @@ PLATFORMS
 
 DEPENDENCIES
   SystemTimer
+  actionpack
   activerecord
   activesupport
   async_sinatra
@@ -163,7 +191,7 @@ DEPENDENCIES
   omniauth-google-apps
   pg
   rack!
-  rack-contrib
+  rack-contrib!
   rack-flash3
   rack-test
   rake
@@ -176,6 +204,7 @@ DEPENDENCIES
   sinatra
   sinatra-activerecord (~> 0.1)
   sinatra-reloader
+  sinatra-static-assets
   sqlite3
   thin
   will_paginate (~> 3.0)
