@@ -88,7 +88,7 @@ module AppName
       body { haml :index }
     end
 
-    aget %r{/css/(default|reset)\.css} do |css|
+    aget %r{/css/(\S+)\.css} do |css|
       content_type 'text/css', :charset => 'utf-8'
       body { sass :"#{css}" }
     end
