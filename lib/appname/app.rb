@@ -41,7 +41,11 @@ module AppName
       end
 
       def partial(page, options = {})
-        render :haml, page, options.merge!(:layout => false)
+        render :haml, page, options.merge!(:layout => false), { :partial => true }
+      end
+
+      def is_partial?
+        locals[:partial] == true
       end
     end
 
