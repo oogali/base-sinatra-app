@@ -8,12 +8,13 @@ module AppName
     REQUIRE_AUTHENTICATION = false
 
     register Sinatra::Async
+    register Sinatra::StaticAssets
 
     configure :development do
       enable :show_settings
     end
 
-    use Rack::Session::Pool, :path => '/', :secret => 'SET_YOUR_SECRET_SESSION_KEY_HERE', :key => 'SESSIONID', :sidbits => 128
+    use Rack::Session::Pool, :path => '/', :key => 'SESSIONID', :sidbits => 128
     use Rack::Flash
     use OmniAuth::Builder do
       provider :google_apps, :store => OpenID::Store::Filesystem.new('/tmp/appname'), :domain => 'appname.com'
@@ -91,7 +92,7 @@ module AppName
       body { haml :index }
     end
 
-    aget %r{/css/(default|reset)\.css} do |css|
+    aget %r{/css/(\S+)\.css} do |css|
       content_type 'text/css', :charset => 'utf-8'
       body { sass :"#{css}" }
     end
