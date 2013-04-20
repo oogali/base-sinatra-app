@@ -26,7 +26,7 @@ end
 
 namespace :debug do
   task :database do
-    system "bundle exec irb -I#{File.dirname(__FILE__) + '/lib/'} -rsetup/postgres -rappname"
+    system "bundle exec irb -I. -I#{File.dirname(__FILE__) + '/lib/'} -rsetup/postgres -rappname"
   end
 end
 
