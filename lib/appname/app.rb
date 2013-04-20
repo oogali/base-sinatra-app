@@ -7,7 +7,6 @@ module AppName
   class Application < Sinatra::Application
     REQUIRE_AUTHENTICATION = false
 
-    register Sinatra::Async
     register Sinatra::StaticAssets
 
     configure :development do
@@ -59,7 +58,7 @@ module AppName
       end
     end
 
-    aget '/login' do
+    get '/login' do
       body { haml :login }
     end
 
@@ -72,7 +71,7 @@ module AppName
       redirect session[:to] ? session.delete(:to) : '/'
     end
 
-    aget '/logout' do
+    get '/logout' do
       session.destroy
       redirect '/login'
     end
@@ -84,15 +83,15 @@ module AppName
       end
     end
 
-    aget '/healthcheck' do
+    get '/healthcheck' do
       body { "OK\n" }
     end
 
-    aget '/' do
+    get '/' do
       body { haml :index }
     end
 
-    aget %r{/css/(\S+)\.css} do |css|
+    get %r{/css/(\S+)\.css} do |css|
       content_type 'text/css', :charset => 'utf-8'
       body { sass :"#{css}" }
     end
