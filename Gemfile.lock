@@ -12,7 +12,7 @@ GIT
     rack (1.5.0)
 
 GEM
-  remote: http://rubygems.org/
+  remote: https://rubygems.org/
   specs:
     SystemTimer (1.2.3)
     actionpack (1.4.0)

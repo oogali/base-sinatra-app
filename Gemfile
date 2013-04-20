@@ -1,4 +1,4 @@
-source :rubygems
+source 'https://rubygems.org'
 gem 'SystemTimer', :platforms => :ruby_18
 gem 'eventmachine'
 gem 'thin'
