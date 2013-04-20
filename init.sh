@@ -44,7 +44,7 @@ ln -s config_development.yml config.yml
 # truncate git history, and perform initial commit
 git branch -m master initial
 git checkout --orphan master
-git commit -m "Initial commit of ${newclass}"
+git commit -a -m "Initial creation of ${newclass}"
 
 # delete old temporary branch, and display git log
 git branch -D initial
