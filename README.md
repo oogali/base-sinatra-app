@@ -35,6 +35,7 @@ To get started:
     git clone git://github.com/oogali/base-sinatra-app.git
     cd base-sinatra-app
     bundle install
+    ./init.sh YourAwesomeApp
     bundle exec rake start
 
 Ok, how does it work?
