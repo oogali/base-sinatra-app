@@ -9,7 +9,10 @@ Dir[File.join(File.dirname(__FILE__), 'setup', "*.rb")].each { |file| require fi
 require 'appname'
 
 # set environment...
-set :environment, ENV['RAILS_ENV'] if ENV['RAILS_ENV'] and settings.environment != ENV['RAILS_ENV']
+set :environment, ENV['RACK_ENV'] if ENV['RACK_ENV'] and settings.environment != ENV['RACK_ENV']
+
+# in case we're using any brain-damaged rails gems
+ENV['RAILS_ENV'] = ENV['RACK_ENV']
 
 namespace :server do
   task :start do
