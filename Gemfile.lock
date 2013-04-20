@@ -147,7 +147,7 @@ PLATFORMS
 
 DEPENDENCIES
   SystemTimer
-  activerecord
+  activerecord (>= 3.2.11)
   activesupport
   bcrypt-ruby
   capybara
