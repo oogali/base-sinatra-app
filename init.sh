@@ -33,6 +33,9 @@ for file in `find . -type f ! -path './.git/*' -exec grep -il appname {} \;` ; d
   rm -f ${file}.bak
 done
 
+# delete old origin
+git remote rm origin
+
 # delete placeholders, readme, and this init script
 git rm run/.keep
 git rm -f README.md
