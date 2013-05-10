@@ -1,5 +1,8 @@
 require 'sinatra'
 require 'sinatra/activerecord'
+require 'will_paginate'
+require 'will_paginate/active_record'
+require 'will_paginate/array'
 
 # establish database connection
 set :database, 'postgres://localhost/newapp' if !ENV['DATABASE_URL']
