@@ -12,7 +12,7 @@ module AppName
     use Rack::Session::Pool, :path => '/', :key => 'SESSIONID', :sidbits => 128
     use Rack::Flash
     use OmniAuth::Builder do
-      provider :google_apps, :store => OpenID::Store::Filesystem.new('/tmp/appname'), :domain => 'appname.com'
+      provider :google_apps, :store => OpenID::Store::Redis.new(settings.redis), :domain => 'appname.com'
     end
 
     def initialize
