@@ -2,5 +2,4 @@
 run/*.log
 run/*.pid
 .sass-cache
-config.yml
 bin/

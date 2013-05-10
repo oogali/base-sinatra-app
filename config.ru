@@ -37,6 +37,9 @@ Dir[File.join(File.dirname(__FILE__), 'setup', "*.rb")].each { |file| require fi
 # load our app
 require 'appname'
 
+# expose raindrops stats
+use Raindrops::Middleware
+
 # map urls
 map '/' do
   run AppName::Application
