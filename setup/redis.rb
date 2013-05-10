@@ -10,4 +10,3 @@ Redis::Objects.redis = Redis.new(
   :password => redis.password,
   :db => redis.path
 )
-puts "#{Redis::Objects.redis.inspect.to_s}\n\n"
