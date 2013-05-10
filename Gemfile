@@ -39,5 +39,4 @@ group :development do
   gem 'rspec'
   gem 'rspec-expectations'
   gem 'rack-test', :require => 'rack/test'
-  gem 'capybara'
 end

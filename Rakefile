@@ -1,7 +1,6 @@
 $: << File.dirname(__FILE__) + '/lib' unless $:.include? File.dirname(__FILE__) + '/lib'
 
 require 'rake'
-require 'cucumber/rake/task' if ENV['RACK_ENV'] == 'test'
 require 'sinatra/activerecord/rake'
 
 # load our setup routines (sql, redis, etc), before loading our app
@@ -30,12 +29,6 @@ namespace :debug do
   end
 end
 
-if ENV['RACK_ENV'] == 'test'
-  Cucumber::Rake::Task.new do |t|
-    t.cucumber_opts = %w{--format pretty}
-  end
-end
-
 desc 'Start the web application'
 task :start => [ 'server:start' ]
 
@@ -47,12 +40,24 @@ task :irb => [ 'debug:database' ]
 
 desc 'Restart the web application'
 task :restart => [ 'server:stop', 'server:start' ]
+
+begin
+  require 'rspec/core/rake_task'
+  RSpec::Core::RakeTask.new(:spec)
+
+  desc 'Run RSpec tests'
+  task :test => :spec
+rescue LoadError
+  desc 'Tests currently unavailable'
+  task :test do
+    puts 'Tests are not available because one or more test dependencies are unavailable,'
+    puts 'run the "bundle install" command without excluding the development group.'
+  end
+end
+
 task :default do
   puts
   puts 'rake <action>'
   puts '* valid actions: start, stop, restart'
   puts
 end
-
-desc 'Run application unit tests'
-task :test => [ 'cucumber' ]
