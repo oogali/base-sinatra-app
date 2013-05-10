@@ -8,7 +8,7 @@ class CreateUsersTable < ActiveRecord::Migration
       t.timestamps
     end
 
-    # create new user account for oogali, with a default password
+    # create new user account for test login, with a default password
     user = AppName::Db::User.create :username => 'test', :passwd => BCrypt::Password.create('changeme!', :cost => 6)
   end
 
