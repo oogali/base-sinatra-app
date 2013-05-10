@@ -9,10 +9,6 @@ module AppName
 
     register Sinatra::StaticAssets
 
-    configure :development do
-      enable :show_settings
-    end
-
     use Rack::Session::Pool, :path => '/', :key => 'SESSIONID', :sidbits => 128
     use Rack::Flash
     use OmniAuth::Builder do
