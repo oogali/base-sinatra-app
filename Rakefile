@@ -14,12 +14,29 @@ set :environment, ENV['RACK_ENV'] if ENV['RACK_ENV'] and settings.environment !=
 ENV['RAILS_ENV'] = ENV['RACK_ENV']
 
 namespace :server do
+  ROOT = File.dirname(__FILE__)
+  PIDFILE = File.join(ROOT, 'run/server.pid')
+
+  def get_pid
+    unless File.exists? PIDFILE
+      puts 'Server is not running'
+      return nil
+    end
+
+    File.read(PIDFILE).to_i
+  end
+
+  def send_signal(pid, signal = :INT)
+    Process.kill signal, pid
+  end
+
   task :start do
-    system "thin -s 1 -C config.yml -R config.ru start"
+    system "cd #{ROOT} && bundle exec unicorn -c #{ROOT}/unicorn-configuration.rb -D"
   end
 
   task :stop do
-    system "thin -s 1 -C config.yml -R config.ru stop"
+    pid = get_pid
+    send_signal pid if pid
   end
 end
 
