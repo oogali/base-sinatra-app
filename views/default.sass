@@ -1,16 +1,41 @@
-body, input, th, td, h2, h3, h4, h5, h6
+*
+  -webkit-box-sizing: border-box
+  -moz-box-sizing: border-box
+  box-sizing: border-box
+
+body, input, th, td, h2, h3, h4, h5, h6, select, textarea, button,
+.pure-g [class *= "pure-u"]
   font-family: "Helvetica Neue", helvetica, verdana, arial
-  line-height: 1.1em
 
 h1
   font-size: 2.5em
   font-weight: bold
-  line-height: 2em
 
 #container
-  width: 930px
-  min-height: 600px
+  padding: 0
+
+#body
   background-color: #ccc
-  margin: 25px auto
-  padding-left: 15px
-  padding-right: 15px
+  padding: 2em 1em 0
+
+.pure-menu .pure-menu-heading
+  font-weight: bold
+
+li .pure-menu-heading
+  font-weight: bold
+
+a.pure-button
+  text-align: left
+
+a.sitetitle
+  height: 3em
+  line-height: 3em
+
+  span
+    display: block
+    float: left
+    vertical-align: middle
+    line-height: 225%
+
+  & *
+    vertical-align: middle
