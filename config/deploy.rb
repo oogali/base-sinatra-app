@@ -2,7 +2,7 @@ set :application, 'appname'
 
 set :repository,  '../'
 set :scm, :git
-set :branch, :master
+set :branch, fetch(:branch, :master)
 set :git_enable_submodules, 1
 
 set :user, "#{application}"
