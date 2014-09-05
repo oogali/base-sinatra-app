@@ -44,7 +44,9 @@ I highly recommend [rbenv](https://github.com/sstephenson/rbenv).
 
 Why? Because you'll need a Ruby version manager for consistent targeting.
 
-Chances are, you're developing on your laptop which has one Ruby version, then deploying to a server or instance that has another Ruby version. Then one day, you may spin up a new VM on Amazon EC2, DigitalOcean, or Linode, and find out that theirs systems have a completely different Ruby version.
+Chances are, you're developing on your laptop which has one Ruby version, then deploying to a server or instance that has another Ruby version.
+
+Then one day, you may spin up a new VM on Amazon EC2, DigitalOcean, or Linode, and find out that theirs systems have a completely different Ruby version.
 
 ### Getting Started
 
@@ -74,12 +76,20 @@ As part of the prep process, Bundler creates a few files and directories, but yo
 * [Gemfile.lock](https://github.com/oogali/base-sinatra-app/blob/master/Gemfile.lock)
 
 #### Databases and Datastores
-Chances are, you want to talk to some sort of database or datastore. So, there are some templates defined (but not activated), for the things I deal with the most: PostgreSQL and Redis.
+Chances are, you will eventually want to talk to some sort of database or datastore.
+
+So, there are some templates defined (but not activated), for the things I deal with the most: PostgreSQL and Redis.
 
 You can find the above initialization files in the [setup/](https://github.com/oogali/base-sinatra-app/tree/master/setup) directory. Edit these to your heart's content, and then rename them so the files no longer carry a .inactive extension.
 
+    vi setup/redis.rb
+    git mv setup/redis.rb.inactive setup/redis.rb
+
 #### Rake
 I rely on [rake](https://github.com/jimweirich/rake) to start and stop the application.  It handles preloading your datastore configurations, loading your code, and finally, starting and stopping the web server. This logic is contained in the [Rakefile](https://github.com/oogali/base-sinatra-app/blob/master/Rakefile).
+
+    bundle exec rake start
+    bundle exec rake stop
 
 #### Unicorn
 [Unicorn](http://unicorn.bogomips.org/) is the web server used to front your web application. Its configuration, which you can also modify, is read from [unicorn-configuration.rb](https://github.com/oogali/base-sinatra-app/blob/master/unicorn-configuration.rb).
