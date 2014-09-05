@@ -7,6 +7,7 @@ set :git_enable_submodules, 1
 
 set :user, "#{application}"
 set :use_sudo, false
+set :group_writable, false
 
 set :copy_strategy, :export
 # deploy_via:
