@@ -29,6 +29,13 @@ set :default_stage, 'production'
 require 'bundler/capistrano'
 require 'hipchat/capistrano'
 
+require 'capistrano-rbenv'
+set :rbenv_setup_shell, true
+set :rbenv_install_bundler, true
+set :rbenv_install_dependencies, false
+set :rbenv_ruby_version, (File.read(File.expand_path(File.join(File.dirname(__FILE__), '..', '.ruby-version'))).strip rescue '1.9.3-p484')
+set :bundle_flags, "--deployment --quiet --binstubs --shebang ruby-local-exec"
+
 namespace :deploy do
   task :start do
     run "cd #{deploy_to}/current && RACK_ENV=#{env} #{rake} start"
