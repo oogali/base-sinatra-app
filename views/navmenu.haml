@@ -1,0 +1,33 @@
+%div#navmenu{ :class => ['pure-menu', 'pure-menu-open'] }
+  %div.header
+    %a.pure-menu-heading.sitetitle
+      %span= 'Base Sinatra App'
+      %img{ :src => '/img/icon.png', :width => 32, :height => 32, :align => :right }
+
+  %ul
+    %li
+      %a.pure-menu-heading.pure-button{ :href => '/widgets' }
+        %i.fa.fa-group.fa-lg= ''
+        Widgets
+      %li
+        %a{ :href => "#" }= 'Group 1'
+      %li
+        %a{ :href => "#" }= 'Group 2'
+
+    %li
+      %a.pure-menu-heading.pure-button{ :href => '/galaxies' }
+        %i.fa.fa-truck.fa-lg= ''
+        Galaxies
+      %li
+        %a{ :href => "#" }= 'Universe 1'
+      %li
+        %a{ :href => "#" }= 'Universe 2'
+
+    %li
+      %a.pure-menu-heading.pure-button{ :href => '/wormholes' }
+        %i.fa.fa-shopping-cart.fa-lg= ''
+        Products
+      %li
+        %a{ :href => "#" }= 'Doctor 1'
+      %li
+        %a{ :href => "#" }= 'Doctor 2'

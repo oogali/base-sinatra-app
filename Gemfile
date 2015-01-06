@@ -36,6 +36,8 @@ gem 'unicorn'
 gem 'addressable'
 
 group :development do
+  gem 'capistrano'
+  gem 'capistrano-rbenv'
   gem 'rspec'
   gem 'rspec-expectations'
   gem 'rack-test', :require => 'rack/test'

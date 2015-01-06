@@ -2,11 +2,12 @@ set :application, 'appname'
 
 set :repository,  '../'
 set :scm, :git
-set :branch, :master
+set :branch, fetch(:branch, :master)
 set :git_enable_submodules, 1
 
 set :user, "#{application}"
 set :use_sudo, false
+set :group_writable, false
 
 set :copy_strategy, :export
 # deploy_via:
@@ -22,19 +23,26 @@ set :normalize_asset_timestamps, false
 # set :hipchat_room_name, 'HIPCHAT_ROOM_NAME'
 # set :hipchat_announce, true
 
-role :app, 'localhost'
-role :db, 'localhost', :primary => true
+require 'capistrano/ext/multistage'
+set :default_stage, 'production'
 
 require 'bundler/capistrano'
 require 'hipchat/capistrano'
 
+require 'capistrano-rbenv'
+set :rbenv_setup_shell, true
+set :rbenv_install_bundler, true
+set :rbenv_install_dependencies, false
+set :rbenv_ruby_version, (File.read(File.expand_path(File.join(File.dirname(__FILE__), '..', '.ruby-version'))).strip rescue '1.9.3-p484')
+set :bundle_flags, "--deployment --quiet --binstubs --shebang ruby-local-exec"
+
 namespace :deploy do
   task :start do
-    run "cd #{deploy_to}/current && RACK_ENV=production #{rake} start"
+    run "cd #{deploy_to}/current && RACK_ENV=#{env} #{rake} start"
   end
 
   task :stop do
-    run "test -d #{deploy_to}/current && cd #{deploy_to}/current && RACK_ENV=production #{rake} stop"
+    run "test -d #{deploy_to}/current && cd #{deploy_to}/current && RACK_ENV=#{env} #{rake} stop"
   end
 
   task :restart, :roles => :app, :except => { :no_release => true } do
