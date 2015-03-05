@@ -2,10 +2,10 @@ class CreateUsersTable < ActiveRecord::Migration
   def self.up
     create_table :users do |t|
       t.primary_key :id
-      t.string :username, { :unique => true, :null => false }
-      t.string :passwd, :null => false
+      t.string :username, { unique: true, null: false }
+      t.string :passwd, null: false
       t.string :name
-      t.timestamps
+      t.timestamps null: false
     end
 
     # create new user account for test login, with a default password
