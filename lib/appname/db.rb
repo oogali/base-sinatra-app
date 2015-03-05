@@ -8,6 +8,9 @@ module AppName
     end
 
     class User < ActiveRecord::Base
+      validates :username,  presence: true, uniqueness: { case_sensitive: false }, length: { minimum: 1 }
+      validates :name, presence: true, length: { minimum: 1 }
+
       def password
         @password ||= BCrypt::Password.new passwd
       end
