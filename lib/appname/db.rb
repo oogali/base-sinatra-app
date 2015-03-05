@@ -3,7 +3,7 @@ require 'bcrypt'
 require 'will_paginate'
 
 module AppName
-  module Model
+  module Db
     class Object < ActiveRecord::Base
     end
 
