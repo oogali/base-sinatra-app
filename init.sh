@@ -41,9 +41,6 @@ git rm run/.keep
 git rm -f README.md
 git rm -f ${0}
 
-# symlink the development configuration
-ln -s config_development.yml config.yml
-
 # truncate git history, and perform initial commit
 git branch -m master initial
 git checkout --orphan master
