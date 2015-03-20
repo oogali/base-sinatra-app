@@ -37,7 +37,7 @@ done
 git remote rm origin
 
 # delete placeholders, readme, and this init script
-git rm run/.keep
+git rm run/.keep && mkdir run
 git rm -f README.md
 git rm -f ${0}
 
