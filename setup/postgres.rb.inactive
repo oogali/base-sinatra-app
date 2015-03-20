@@ -5,4 +5,4 @@ require 'will_paginate/active_record'
 require 'will_paginate/array'
 
 # establish database connection
-set :database, 'postgres://localhost/newapp' if !ENV['DATABASE_URL']
+set :database, 'postgres://localhost/newapp' unless ENV['DATABASE_URL']
