@@ -80,16 +80,16 @@ module AppName
     end
 
     get '/healthcheck' do
-      body { "OK\n" }
+      "OK\n"
     end
 
     get '/' do
-      body { haml :index }
+      haml :index
     end
 
     get %r{/css/(\S+)\.css} do |css|
       content_type 'text/css', :charset => 'utf-8'
-      body { sass :"#{css}" }
+      sass :"#{css}"
     end
   end
 end
