@@ -41,6 +41,9 @@ group :development do
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
   gem 'capistrano-rbenv-install'
+end
+
+group :test do
   gem 'rspec'
   gem 'rspec-expectations'
   gem 'rack-test', :require => 'rack/test'
