@@ -140,9 +140,10 @@ There's a base [Capistrano](https://github.com/capistrano/capistrano/wiki/2.x-Fr
 I've also included a number of Capistrano modules that have made my life easier. I won't go into too much detail here, but here's a list:
 
 * [Capistrano::Bundler](https://github.com/capistrano/bundler)
-* [Capistrano::rbenv](https://github.com/capistrano/rbenv)
+* [Capistrano::Rails](https://github.com/capistrano/rails)
+* [Capistrano::Rbenv](https://github.com/capistrano/rbenv)
+* [Capistrano::Rbenv::Install](https://github.com/capistrano-plugins/capistrano-rbenv-install)
 * [hipchat](https://github.com/hipchat/hipchat-rb)
-* [Multistage Extension](https://github.com/capistrano/capistrano/wiki/2.x-Multistage-Extension)
 
 What's left to do?
 ------------------
