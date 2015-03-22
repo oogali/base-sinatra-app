@@ -26,7 +26,7 @@ set :normalize_asset_timestamps, false
 
 ## rbenv settings
 set :rbenv_type, :user
-set :rbenv_ruby, (File.read(File.expand_path(File.join(File.dirname(__FILE__), '..', '.ruby-version'))).strip rescue '1.9.3-p484')
+set :rbenv_ruby, (File.read(File.expand_path(File.join(File.dirname(__FILE__), '..', '.ruby-version'))).strip rescue '1.9.3-p551')
 set :rbenv_map_bins, %w{rake gem bundle ruby rails}
 set :rbenv_setup_shell, true
 set :rbenv_install_bundler, true
