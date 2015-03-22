@@ -37,7 +37,10 @@ gem 'addressable'
 
 group :development do
   gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
   gem 'capistrano-rbenv'
+  gem 'capistrano-rbenv-install'
   gem 'rspec'
   gem 'rspec-expectations'
   gem 'rack-test', :require => 'rack/test'
