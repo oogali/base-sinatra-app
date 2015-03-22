@@ -3,6 +3,10 @@ $: << File.dirname(__FILE__) + '/lib' unless $:.include? File.dirname(__FILE__) 
 require 'rake'
 require 'sinatra/activerecord/rake'
 
+# make sure our environment variables are set for both rack and rails
+ENV['RACK_ENV'] = ENV['RAILS_ENV'] if ENV['RAILS_ENV'] and not ENV['RACK_ENV']
+ENV['RAILS_ENV'] = ENV['RACK_ENV'] if ENV['RACK_ENV'] and not ENV['RAILS_ENV']
+
 # load our setup routines (sql, redis, etc), before loading our app
 Dir[File.join(File.dirname(__FILE__), 'setup', "*.rb")].each { |file| require file }
 require 'appname'
