@@ -80,10 +80,19 @@ Chances are, you will eventually want to talk to some sort of database or datast
 
 So, there are some templates defined (but not activated), for the things I deal with the most: PostgreSQL and Redis.
 
-You can find the above initialization files in the [setup/](https://github.com/oogali/base-sinatra-app/tree/master/setup) directory. Edit these to your heart's content, and then rename them so the files no longer carry a .inactive extension.
+You can find initialization files for the above datastores in the [setup/](https://github.com/oogali/base-sinatra-app/tree/master/setup) directory. Edit these to your heart's content, and then rename them so the files no longer carry a .inactive extension.
 
     vi setup/redis.rb
     git mv setup/redis.rb.inactive setup/redis.rb
+
+I've switched to the standard of using the "config/database.yml" pattern to configure ActiveRecord to talk to my PostgreSQL datastore. You can find this file in the [config/](https://github.com/oogali/base-sinatra-app/tree/master/config) directory. You can edit this and rename it to config/database.yml.
+
+However, you should know that it is bad practice to commit database credentials into your project as anyone with access to the repository can see the prized jewels of your SQL password. So, I've configured the local Git settings so that any file named "config/database.yml" to be ignored by your Git client.
+
+You'll want to make a copy of the example file, name it "config/database.yml", and then edit it.
+
+    cp config/database.yml.example config/database.yml
+    vi config/database.yml
 
 #### Rake
 I rely on [rake](https://github.com/jimweirich/rake) to start and stop the application.  It handles preloading your datastore configurations, loading your code, and finally, starting and stopping the web server. This logic is contained in the [Rakefile](https://github.com/oogali/base-sinatra-app/blob/master/Rakefile).

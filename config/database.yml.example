@@ -1,0 +1,15 @@
+development:
+  adapter: postgresql
+  database: appname
+  host: localhost
+  username: appname-web
+  password: password!
+  pool: 5
+
+production:
+  adapter: postgresql
+  database: appname
+  host: localhost
+  username: appname-web
+  password: password!
+  pool: 5
