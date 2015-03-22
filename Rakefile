@@ -11,12 +11,6 @@ ENV['RAILS_ENV'] = ENV['RACK_ENV'] if ENV['RACK_ENV'] and not ENV['RAILS_ENV']
 Dir[File.join(File.dirname(__FILE__), 'setup', "*.rb")].each { |file| require file }
 require 'appname'
 
-# set environment...
-set :environment, ENV['RACK_ENV'] if ENV['RACK_ENV'] and settings.environment != ENV['RACK_ENV']
-
-# in case we're using any brain-damaged rails gems
-ENV['RAILS_ENV'] = ENV['RACK_ENV']
-
 namespace :server do
   ROOT = File.dirname(__FILE__)
   PIDFILE = File.join(ROOT, 'run/server.pid')
