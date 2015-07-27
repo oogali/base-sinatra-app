@@ -34,6 +34,7 @@ gem 'sinatra-static-assets', require: 'sinatra/static_assets'
 gem 'rack-session-redis', git: 'git://github.com/vangberg/rack-session-redis.git', require: 'rack/session/redis'
 gem 'unicorn'
 gem 'addressable'
+gem 'pry'
 gem 'sentry-raven', git: 'https://github.com/getsentry/raven-ruby.git'
 
 group :development do

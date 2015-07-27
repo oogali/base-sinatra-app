@@ -40,7 +40,7 @@ end
 
 namespace :debug do
   task :database do
-    system "bundle exec irb -I. -I#{File.dirname(__FILE__) + '/lib/'} -rsetup/postgres -rappname"
+    system "bundle exec pry -I. -I#{File.dirname(__FILE__) + '/lib/'} -rsetup/postgres -rappname"
   end
 end
 
@@ -52,6 +52,7 @@ task :stop => [ 'server:stop' ]
 
 desc 'Start the Interactive Ruby interpreter (for ActiveRecord-troubleshooting)'
 task :irb => [ 'debug:database' ]
+task :pry => [ 'debug:database' ]
 
 desc 'Restart the web application'
 task :restart => [ 'server:stop', 'server:start' ]
