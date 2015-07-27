@@ -3,3 +3,5 @@ require 'sinatra/activerecord'
 require 'will_paginate'
 require 'will_paginate/active_record'
 require 'will_paginate/array'
+
+use ActiveRecord::QueryCache
