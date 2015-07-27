@@ -1,0 +1,11 @@
+development:
+  database: 0
+  host: localhost
+  port: 6379
+  password:
+
+production:
+  database: 0
+  host: someserver.com
+  port: 6379
+  password:

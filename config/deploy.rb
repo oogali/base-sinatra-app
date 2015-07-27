@@ -37,7 +37,7 @@ set :bundle_flags, "--deployment --quiet --binstubs --shebang ruby-local-exec"
 
 ## symlink directories and configuration files
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
-set :linked_files, %w{config/database.yml}
+set :linked_files, %w{config/database.yml config/redis.yml}
 
 namespace :deploy do
   task :create_db do
@@ -79,6 +79,7 @@ namespace :deploy do
   task :upload do
     on roles(:all) do
       upload!('config/database.yml', "#{shared_path}/config/database.yml")
+      upload!('config/redis.yml', "#{shared_path}/config/redis.yml")
     end
   end
 end
