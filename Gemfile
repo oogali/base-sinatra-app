@@ -4,7 +4,7 @@ gem 'eventmachine'
 gem 'hiredis'
 gem 'redis', '>= 2.2.0', require: ['redis', 'redis/connection/hiredis']
 gem 'redis-objects'
-gem 'sinatra'
+gem 'sinatra', git: 'git://github.com/sinatra/sinatra.git'
 gem 'haml'
 gem 'haml-contrib'
 gem 'erubis'
