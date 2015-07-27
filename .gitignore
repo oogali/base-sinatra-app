@@ -4,3 +4,4 @@ run/*.pid
 .sass-cache
 bin/
 config/database.yml
+gems/
