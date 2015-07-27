@@ -10,7 +10,6 @@ module AppName
     register Sinatra::StaticAssets
 
     use Rack::Session::Pool, :path => '/', :key => 'SESSIONID', :sidbits => 128
-    use Rack::Flash
     use OmniAuth::Builder do
       provider :google_apps, :store => OpenID::Store::Redis.new(settings.redis), :domain => 'appname.com'
     end
