@@ -60,7 +60,7 @@ namespace :deploy do
     on roles(:app) do
       within release_path do
         with rails_env: fetch(:rails_env) do
-          execute :rake, 'start'
+          execute :rake, 'stop'
         end
       end
     end
@@ -71,6 +71,16 @@ namespace :deploy do
       within release_path do
         with rails_env: fetch(:rails_env) do
           execute :rake, 'restart'
+        end
+      end
+    end
+  end
+
+  task :reload do
+    on roles(:app) do
+      within release_path do
+        with rails_env: fetch(:rails_env) do
+          execute :rake, 'reload'
         end
       end
     end
