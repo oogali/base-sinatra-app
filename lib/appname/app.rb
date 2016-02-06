@@ -108,7 +108,7 @@ module AppName
       haml :index
     end
 
-    get %r{/css/(\S+)\.css} do |css|
+    get %r{^/css/(\S+)\.css} do |css|
       content_type 'text/css', :charset => 'utf-8'
       sass :"#{css}"
     end
