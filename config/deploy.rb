@@ -89,7 +89,9 @@ namespace :deploy do
   task :upload do
     on roles(:all) do
       fetch(:linked_files, []).each do |_filename|
-        upload!(_filename, File.join(shared_path, _filename))
+        if File.exists?(_filename)
+          upload!(_filename, File.join(shared_path, _filename))
+        end
       end
     end
   end
