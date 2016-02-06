@@ -40,6 +40,9 @@ require 'appname'
 # expose raindrops stats
 use Raindrops::Middleware
 
+# catch exceptions with Raven + Sentry
+use Raven::Rack
+
 # map urls
 map '/' do
   run AppName::Application
