@@ -49,6 +49,42 @@ RSpec.configure do |c|
 
   c.include Rack::Test::Methods
   c.include FactoryGirl::Syntax::Methods
+
+  c.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+
+    begin
+      DatabaseCleaner.start
+      FactoryGirl.lint
+    ensure
+      DatabaseCleaner.clean
+    end
+  end
+
+  c.before(:each) do
+    DatabaseCleaner.strategy = :transaction
+  end
+
+  c.before(:each, js: true) do
+    DatabaseCleaner.strategy = :truncation
+  end
+
+  c.after(:all) do
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  c.after(:each) do
+    DatabaseCleaner.clean
+  end
+
+  c.around do |example|
+    DatabaseCleaner.cleaning do
+      ActiveRecord::Base.transaction do
+        example.run
+      end
+    end
+  end
 end
 
 def app
