@@ -53,4 +53,8 @@ group :test do
   gem 'rspec'
   gem 'rspec-expectations'
   gem 'rack-test', require: 'rack/test'
+  gem 'webmock'
+  gem 'database_cleaner'
+  gem 'factory_girl', '~> 4.0', require: false
+  gem 'shoulda-matchers', git: 'git://github.com/thoughtbot/shoulda-matchers.git', require: false
 end

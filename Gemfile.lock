@@ -15,6 +15,13 @@ GIT
       tilt (>= 1.3, < 3)
 
 GIT
+  remote: git://github.com/thoughtbot/shoulda-matchers.git
+  revision: 343d5ed407681a243c29306d5197c42cc459334a
+  specs:
+    shoulda-matchers (3.1.1)
+      activesupport (>= 4.0.0)
+
+GIT
   remote: git://github.com/vangberg/rack-session-redis.git
   revision: 92432854ad0fecbbb12d6011bd7ba4e8853858f0
   specs:
@@ -69,9 +76,14 @@ GEM
     certifi (14.5.14)
     coderay (1.1.0)
     colorize (0.7.7)
+    crack (0.4.3)
+      safe_yaml (~> 1.0.0)
+    database_cleaner (1.5.1)
     diff-lcs (1.2.5)
     erubis (2.7.0)
     eventmachine (1.0.7)
+    factory_girl (4.5.0)
+      activesupport (>= 3.0.0)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
     fast_stack (0.1.0)
@@ -83,6 +95,7 @@ GEM
       tilt
     haml-contrib (1.0.0.1)
       haml (>= 3.2.0.alpha.13)
+    hashdiff (0.2.3)
     hashie (1.2.0)
     hipchat (1.5.2)
       httparty
@@ -160,6 +173,7 @@ GEM
     ruby-openid (2.3.0)
     ruby-openid-apps-discovery (1.2.0)
       ruby-openid (>= 2.1.7)
+    safe_yaml (1.0.4)
     sass (3.4.16)
     sinatra-activerecord (2.0.6)
       activerecord (>= 3.2)
@@ -186,6 +200,10 @@ GEM
       rack
       raindrops (~> 0.7)
     uuidtools (2.1.5)
+    webmock (1.22.6)
+      addressable (>= 2.3.6)
+      crack (>= 0.3.2)
+      hashdiff
     will_paginate (3.0.7)
     yajl-ruby (1.2.1)
 
@@ -204,8 +222,10 @@ DEPENDENCIES
   capistrano-rails
   capistrano-rbenv
   capistrano-rbenv-install
+  database_cleaner
   erubis
   eventmachine
+  factory_girl (~> 4.0)
   flamegraph
   haml
   haml-contrib
@@ -231,6 +251,7 @@ DEPENDENCIES
   rspec-expectations
   sass
   sentry-raven!
+  shoulda-matchers!
   sinatra!
   sinatra-activerecord
   sinatra-flash
@@ -240,6 +261,7 @@ DEPENDENCIES
   stackprof
   unicorn
   uuidtools
+  webmock
   will_paginate
   yajl-ruby
 
