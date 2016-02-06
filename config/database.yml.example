@@ -1,15 +1,21 @@
-development:
+default: &default
   adapter: postgresql
   database: appname
   host: localhost
-  username: appname-web
-  password: password!
+  username: <%= ENV['PG_USER'] || 'appname-web' %>
+  password: <%= ENV['PG_PASSWORD'] || 'local-testing!' %>
   pool: 5
 
+development:
+  <<: *default
+
+test:
+  <<: *default
+  database: appname-test
+
 production:
-  adapter: postgresql
-  database: appname
-  host: localhost
-  username: appname-web
-  password: password!
-  pool: 5
+  <<: *default
+  database: some-database
+  host: some-server.com
+  username: some-user
+  password: some-password
