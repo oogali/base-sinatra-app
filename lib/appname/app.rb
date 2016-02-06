@@ -54,6 +54,12 @@ module AppName
       def is_partial?
         locals[:partial] == true
       end
+
+      def build_validation_error_msg(obj)
+        obj.errors.messages.map do |k,v|
+          "#{k.to_s} " + v[0..-2].join(', ') + (v.length > 1 ? ' and ' : '') + v.last
+        end.flatten.join("<br/>\n")
+      end
     end
 
     before do
