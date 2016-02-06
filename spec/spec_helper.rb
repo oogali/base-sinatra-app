@@ -39,6 +39,14 @@ set :logging, :false
 set :root, File.expand_path(File.join(File.dirname(__FILE__), '../'))
 
 RSpec.configure do |c|
+  c.warnings = false
+
+  dbconfigs = ActiveRecord::Base.configurations
+  ActiveRecord::Base.logger.level = ENV['DEBUG'] ? Logger::DEBUG : Logger::INFO
+  ActiveRecord::Base.establish_connection(dbconfigs['test'])
+  ActiveRecord::Tasks::DatabaseTasks.env = :test
+  ActiveRecord::Migration.maintain_test_schema!
+
   c.include Rack::Test::Methods
 end
 
