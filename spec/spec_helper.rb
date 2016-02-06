@@ -1,3 +1,12 @@
+if ENV['CI']
+  begin
+    require 'coveralls'
+  rescue LoadError
+  else
+    Coveralls.wear!
+  end
+end
+
 require 'rubygems'
 require 'bundler'
 Bundler.setup(:default, :test)
