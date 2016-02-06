@@ -27,6 +27,9 @@ Shoulda::Matchers.configure do |c|
   end
 end
 
+require 'factory_girl'
+FactoryGirl.find_definitions
+
 ENV['RACK_ENV'] = 'test'
 set :environment, :test
 set :run, :false
