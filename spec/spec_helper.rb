@@ -48,6 +48,7 @@ RSpec.configure do |c|
   ActiveRecord::Migration.maintain_test_schema!
 
   c.include Rack::Test::Methods
+  c.include FactoryGirl::Syntax::Methods
 end
 
 def app
