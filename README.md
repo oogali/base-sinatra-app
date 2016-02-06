@@ -149,4 +149,19 @@ What's left to do?
 ------------------
 ### Testing
 
-I have absolutely no working tests in this project, primarily because I haven't learned testing within Ruby yet. Yes, everyone points me at Cucumber, Webrat, etc, but making them play nicely is something I've yet to figure out.
+I've started to understand testing better in Ruby, but not enough to have strong opinions.
+
+My current test setup is based on:
+* [RSpec](http://rspec.info) as the underlying foundation
+* [database_cleaner](https://github.com/DatabaseCleaner/database_cleaner) to ensure a clean state between tests
+* [shoulda-matchers](https://github.com/thoughtbot/shoulda-matchers) for easier-to-read test assertions
+* [factory_girl](https://github.com/thoughtbot/factory_girl) for building test object (a/k/a fixtures)
+* [webmock](https://github.com/bblimke/webmock) for stubbing out HTTP requests
+
+The test harness (a/k/a setup and configuration), is located in [spec/spec_helper.rb](https://github.com/oogali/base-sinatra-app/blob/master/spec/spec_helper.rb). This takes care of the basic things, such as loading the necessary modules, and configuring database_cleaner to clean up our database before/after each test.
+
+I've built a single factory, for the User model in [spec/factories/user.rb](https://github.com/oogali/base-sinatra-app/blob/master/spec/factories/user.rb) that allows me to create as many Users as I want for testing, without the pain of spelling out every attribute. You can see an example of its usage in the test below.
+
+I've included some basic tests to validate:
+* [the example User model](https://github.com/oogali/base-sinatra-app/blob/master/spec/models/user.rb)
+* [the app home page](https://github.com/oogali/base-sinatra-app/blob/master/spec/routes/index_spec.rb)
