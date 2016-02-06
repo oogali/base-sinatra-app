@@ -64,7 +64,7 @@ module AppName
 
     before do
       if REQUIRE_AUTHENTICATION
-        unless valid_session? or (request.path_info.match /^\/(login|healthcheck|css\/|js\/)/)
+        unless valid_session? or (request.path_info.match(/^\/(login|healthcheck|css\/|js\/)/))
           session[:to] = request.path == '/login' ? '/' : request.path
           return redirect '/login'
         end
