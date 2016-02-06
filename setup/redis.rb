@@ -1,3 +1,4 @@
+require 'active_support/core_ext/hash/keys'
 require 'redis/connection/hiredis'
 require 'redis'
 require 'redis/objects'
@@ -28,11 +29,11 @@ else
 end
 
 # establish redis connection
-redis = Redis::Objects.redis = Redis.new(
+$redis = Redis::Objects.redis = Redis.new(
   :db => _redis[:database],
   :host => _redis[:host],
   :port => _redis[:port],
   :password => _redis[:password]
 )
 
-set :redis, redis
+set :redis, $redis
