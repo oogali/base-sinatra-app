@@ -6,9 +6,6 @@ class CreateUsersTable < ActiveRecord::Migration
       t.string :name
       t.timestamps null: false
     end
-
-    # create new user account for test login, with a default password
-    user = AppName::Db::User.create :username => 'test', :passwd => BCrypt::Password.create('changeme!', :cost => 6)
   end
 
   def self.down
