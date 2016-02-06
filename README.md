@@ -87,7 +87,7 @@ You can find initialization files for the above datastores in the [setup/](https
 
 I've switched to the standard of using the "config/database.yml" pattern to configure ActiveRecord to talk to my PostgreSQL datastore. You can find this file in the [config/](https://github.com/oogali/base-sinatra-app/tree/master/config) directory. You can edit this and rename it to config/database.yml.
 
-However, you should know that it is bad practice to commit database credentials into your project as anyone with access to the repository can see the prized jewels of your SQL password. So, I've configured the local Git settings so that any file named "config/database.yml" to be ignored by your Git client.
+However, you should know that it is bad practice to commit database credentials into your project as anyone with access to the repository can probably get to the prized jewels within your database, by virtue of your SQL credentials. So, I've configured the local Git settings so that any file named "config/database.yml" will be ignored by your Git client and not autocommitted.
 
 You'll want to make a copy of the example file, name it "config/database.yml", and then edit it.
 
