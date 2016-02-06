@@ -163,5 +163,5 @@ The test harness (a/k/a setup and configuration), is located in [spec/spec_helpe
 I've built a single factory, for the User model in [spec/factories/user.rb](https://github.com/oogali/base-sinatra-app/blob/master/spec/factories/user.rb) that allows me to create as many Users as I want for testing, without the pain of spelling out every attribute. You can see an example of its usage in the test below.
 
 I've included some basic tests to validate:
-* [the example User model](https://github.com/oogali/base-sinatra-app/blob/master/spec/models/user.rb)
+* [the example User model](https://github.com/oogali/base-sinatra-app/blob/master/spec/models/users.rb)
 * [the app home page](https://github.com/oogali/base-sinatra-app/blob/master/spec/routes/index_spec.rb)
