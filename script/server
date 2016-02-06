@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+script/update
+bundle exec unicorn -c unicorn-configuration.rb

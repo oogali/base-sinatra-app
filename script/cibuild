@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+
+if [ ! -z "${SEMAPHORE}" ]; then
+    TEST_DATABASE_NAME=${DATABASE_NAME_TEST}
+    TEST_DATABASE_USER=${DATABASE_USERNAME}
+    TEST_DATABASE_PASSWORD=${DATABASE_PASSWORD}
+
+    export CI_BRANCH=${BRANCH_NAME}
+    export CI_BUILD_NUMBER=${SEMAPHORE_BUILD_NUMBER}
+    export CI_BUILD_URL="https://semaphoreci.com/${SEMAPHORE_REPO_SLUG}/branches/${BRANCH_NAME}/builds/${SEMAPHORE_BUILD_NUMBER}"
+fi
+
+if [ ! -z "${CODESHIP}" ]; then
+    cp config/database.yml.example config/database.yml
+
+    TEST_DATABASE_USER=${PG_USER}
+    TEST_DATABASE_PASSWORD=${PG_PASSWORD}
+fi
+
+if [ ! -z "${bamboo_agentId}" ]; then
+    cp config/database.yml.example config/database.yml
+
+    TEST_DATABASE_USER=appname-web
+    TEST_DATABASE_NAME=appname-test
+    createuser -dRSl ${TEST_DATABASE_USER}
+
+    export CI=true
+    export CI_NAME=bamboo
+    export CI_BUILD_NUMBER="${bamboo_buildNumber}"
+    export CI_BUILD_URL="${bamboo_buildResultsUrl}"
+    export CI_BRANCH="${bamboo_planRepository_branch}"
+fi
+
+TEST_DATABASE_NAME=${TEST_DATABASE_NAME:-appname-test}
+TEST_DATABASE_USER=${TEST_DATABASE_USER:-appname-web}
+createdb -O ${TEST_DATABASE_USER} ${TEST_DATABASE_NAME}
+
+DATABASE_CREDS="${TEST_DATABASE_USER}"
+if [ ! -z "${TEST_DATABASE_PASSWORD}" ]; then
+    DATABASE_CREDS="${DATABASE_CREDS}:${TEST_DATABASE_PASSWORD}"
+fi
+
+export DATABASE_URL="postgres://${DATABASE_CREDS}@localhost:5432/${TEST_DATABASE_NAME}"
+
+cp config/redis.yml.example config/redis.yml
+
+# export COVERALLS_REPO_TOKEN=yourtokenforcoveralls
+
+script/test

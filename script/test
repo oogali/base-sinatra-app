@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+export RAILS_ENV=test
+bundle exec rake test

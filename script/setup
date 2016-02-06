@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+# XXX: Create necessary bits needed to set up this project locally for the first time
+exit 0

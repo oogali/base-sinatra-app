@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+script/bootstrap
+bundle exec rake db:migrate

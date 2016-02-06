@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+# TODO: Add logic to pick up environment from command line
+
+bundle exec rake pry

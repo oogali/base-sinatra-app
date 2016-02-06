@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+RUBY_VERSION=$(cat .ruby-version)
+RBENV=$(which rbenv 2>/dev/null)
+RVM=$(which rvm 2>/dev/null)
+
+if [ ! -z "${RUBY_VERSION}" ]; then
+    if [ ! -z "${RBENV}" ]; then
+        ${RBENV} install ${RUBY_VERSION}
+    elif [ ! -z "${RVM}" ]  && [ ! -z "${RUBY_VERSION}" ]; then
+        ${RVM} use ${RUBY_VERSION} --install
+        gem install --no-ri --no-rdoc bundler
+    fi
+fi
+
+bundle install --path vendor/bundle
