@@ -7,9 +7,8 @@ require 'sinatra/activerecord/rake'
 ENV['RACK_ENV'] = ENV['RAILS_ENV'] if ENV['RAILS_ENV'] and not ENV['RACK_ENV']
 ENV['RAILS_ENV'] = ENV['RACK_ENV'] if ENV['RACK_ENV'] and not ENV['RAILS_ENV']
 
-# load our setup routines (sql, redis, etc), before loading our app
-Dir[File.join(File.dirname(__FILE__), 'setup', "*.rb")].each { |file| require file }
-require 'appname'
+# fallback to development if no environment is set
+ENV['RAILS_ENV'] = ENV['RACK_ENV'] = 'development' if not ENV['RAILS_ENV'] and not ENV['RACK_ENV']
 
 namespace :server do
   ROOT = File.dirname(__FILE__)
@@ -38,9 +37,24 @@ namespace :server do
   end
 end
 
+namespace :db do
+  require File.join(File.dirname(__FILE__), 'setup', 'postgres.rb')
+  require 'appname/db'
+end
+
 namespace :debug do
   task :database do
     system "bundle exec pry -I. -I#{File.dirname(__FILE__) + '/lib/'} -rsetup/postgres -rappname"
+  end
+
+  task :test_connect do
+    require File.join(File.dirname(__FILE__), 'setup', 'postgres.rb')
+    require 'appname/db'
+
+    ENV['RACK_ENV'] = 'test'
+    ENV['RAILS_ENV'] = 'test'
+    ActiveRecord::Tasks::DatabaseTasks.env = :test
+    ActiveRecord::Base.establish_connection(:test)
   end
 end
 
@@ -62,7 +76,7 @@ begin
   RSpec::Core::RakeTask.new(:spec)
 
   desc 'Run RSpec tests'
-  task :test => :spec
+  task :test => [ 'debug:test_connect', 'db:purge', 'db:migrate', 'db:test:prepare', 'db:seed', :spec ]
 rescue LoadError
   desc 'Tests currently unavailable'
   task :test do
