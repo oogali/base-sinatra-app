@@ -88,8 +88,9 @@ namespace :deploy do
 
   task :upload do
     on roles(:all) do
-      upload!('config/database.yml', "#{shared_path}/config/database.yml")
-      upload!('config/redis.yml', "#{shared_path}/config/redis.yml")
+      fetch(:linked_files, []).each do |_filename|
+        upload!(_filename, File.join(shared_path, _filename))
+      end
     end
   end
 end
