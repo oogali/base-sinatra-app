@@ -1,0 +1,3 @@
+# Enable GC profiler, useful when using New Relic
+# XXX: This probably should NOT be enabled in the test environment
+GC::Profiler.enable
