@@ -1,0 +1,8 @@
+require 'raven'
+
+Raven.configure do |config|
+  config.silence_ready = true
+  config.excluded_exceptions = []
+  config.environments = %w[ production ]
+  config.dsn = ENV['RAVEN_URL'] || 'http://id:key@your.raven.installation.com/project_number'
+end
