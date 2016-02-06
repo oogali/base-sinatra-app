@@ -91,4 +91,4 @@ def app
   @app ||= AppName::Application
 end
 
-at_exit { exit }
+at_exit { exit $! ? 1 : 0 }
