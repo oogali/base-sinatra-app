@@ -44,6 +44,9 @@ group :development do
   gem 'capistrano-rbenv'
   gem 'capistrano-rbenv-install'
   gem 'rack-mini-profiler', require: 'rack-mini-profiler'
+  gem 'memory_profiler'
+  gem 'flamegraph'
+  gem 'stackprof'
 end
 
 group :test do

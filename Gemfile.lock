@@ -74,6 +74,11 @@ GEM
     eventmachine (1.0.7)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
+    fast_stack (0.1.0)
+      rake
+      rake-compiler
+    flamegraph (0.1.0)
+      fast_stack
     haml (4.1.0.beta.1)
       tilt
     haml-contrib (1.0.0.1)
@@ -90,6 +95,7 @@ GEM
     json (1.8.3)
     kgio (2.9.3)
     maruku (0.7.2)
+    memory_profiler (0.9.6)
     method_source (0.8.2)
     mimemagic (0.3.0)
     minitest (5.7.0)
@@ -133,6 +139,8 @@ GEM
       rack (>= 1.0)
     raindrops (0.15.0)
     rake (10.4.2)
+    rake-compiler (0.9.5)
+      rake
     redis (3.2.1)
     redis-objects (1.2.0)
       redis (>= 3.0.2)
@@ -168,6 +176,7 @@ GEM
       colorize (>= 0.7.0)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
+    stackprof (0.2.8)
     thread_safe (0.3.5)
     tilt (2.0.1)
     tzinfo (1.2.2)
@@ -197,12 +206,14 @@ DEPENDENCIES
   capistrano-rbenv-install
   erubis
   eventmachine
+  flamegraph
   haml
   haml-contrib
   hipchat
   hiredis
   json
   maruku
+  memory_profiler
   oa-openid
   omniauth (~> 1.0.3)
   omniauth-google-apps
@@ -226,7 +237,11 @@ DEPENDENCIES
   sinatra-redirect-with-flash
   sinatra-static-assets
   sqlite3
+  stackprof
   unicorn
   uuidtools
   will_paginate
   yajl-ruby
+
+BUNDLED WITH
+   1.11.2
