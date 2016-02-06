@@ -14,7 +14,8 @@ require 'webmock/rspec'
 require 'rack/test'
 require 'database_cleaner'
 
-Dir[File.join(File.dirname(__FILE__), '../setup', "*.rb")].each { |file| require file }
+$LOAD_PATH << File.join(File.dirname(__FILE__), '../')
+Dir[File.join(File.dirname(__FILE__), '../setup', "*.rb")].each { |file| require file unless file.include?('setup/raven.rb') }
 require File.join(File.dirname(__FILE__), '../lib', 'appname.rb')
 
 ENV['RACK_ENV'] = 'test'
